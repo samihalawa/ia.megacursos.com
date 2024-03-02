@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="gb18030"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pago Seguro por Western Union</title>
+	<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+	<style type="text/css">@keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        .detecting {
+            animation: pulse 2s infinite;
+        }
+	</style>
+	<script>
+        function startTimer(duration, display) {
+            var timer = duration, minutes, hours;
+            setInterval(function () {
+                hours = parseInt(timer / 3600, 10);
+                minutes = parseInt((timer % 3600) / 60, 10);
+
+                hours = hours < 10 ? "0" + hours : hours;
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+
+                display.textContent = hours + ":" + minutes;
+
+                if (--timer < 0) {
+                    timer = duration;
+                    window.location.reload();
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            var twentyFourHours = 60 * 60 * 24,
+                display = document.querySelector('#time');
+            startTimer(twentyFourHours, display);
+        };
+    </script>
+</head>
+<body class="bg-gray-100">
+<div class="container mx-auto mt-6 p-6 bg-white shadow-md rounded-lg max-w-2xl">
+<h2 class="text-2xl font-semibold mb-4">Pago Seguro por Western Union</h2>
+
+<p>Por favor, realiza el pago en una sucursal de Western Union o a trav&eacute;s de su aplicaci&oacute;n. A continuaci&oacute;n, encontrar&aacute;s los detalles necesarios para completar el pago.</p>
+
+<ul class="list-disc ml-6 mt-4">
+	<li>Nombre: Sami Halawa Ribas</li>
+	<li>Ciudad: Madrid</li>
+	<li>Pa&iacute;s: Espa&ntilde;a</li>
+	<li>DNI: 02558168q</li>
+	<li>Cantidad: 299 USD</li>
+</ul>
+
+<div class="detecting mt-4">
+<p>Tiempo restante para completar el pago (puede cerrar esta webpage): <span id="time">24:00</span></p>
+</div>
+
+<p><button class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onclick="window.location.href='payment-completed.html';">He realizado el pago: enviar comprobante</button></p>
+
+<p></p>
+<a class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-4" href="https://www.westernunion.com/global-services/find-locations?WULanguage=es" target="_blank">Buscar Sucursal de Western Union</a>
+
+<p></p>
+</div>
+</body>
+</html>

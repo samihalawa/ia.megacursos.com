@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="us-ascii"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pago Seguro por Criptodivisas</title>
+	<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+	<style type="text/css">.crypto-address {
+            background-color: #f3f4f6;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: monospace;
+            overflow-wrap: break-word;
+        }
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        .detecting {
+            animation: pulse 2s infinite;
+        }
+	</style>
+	<script>
+        // Función para actualizar el temporizador
+        function startTimer(duration, display) {
+            var timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = duration;
+                    window.location.reload(); // Recargar la página cuando el temporizador llegue a 0
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            var tenMinutes = 60 * 10,
+                display = document.querySelector('#time');
+            startTimer(tenMinutes, display);
+        };
+    </script>
+</head>
+<body class="bg-gray-100">
+<div class="container mx-auto mt-6 p-6 bg-white shadow-md rounded-lg max-w-2xl">
+<h2 class="text-2xl font-semibold mb-4">Pago Seguro por Criptodivisas</h2>
+
+<p class="mb-4">Por favor, realiza el pago a una de las siguientes direcciones de criptodivisas:</p>
+
+<div class="mb-4">
+<h3 class="font-bold">Bitcoin (BTC)</h3>
+
+<p class="crypto-address">0.0071 BTC<br />
+FIO7SdYrckobnqD8wGEbqhCzdKjKs3nFcuHDdkVitKJvgoede8Tgh</p>
+</div>
+
+<div class="mb-4">
+<h3 class="font-bold">Ether (ETH)</h3>
+
+<p class="crypto-address">0.13 ETH<br />
+0xD5F436df99D8F58008C7B1FC3112E5CB41fB086e</p>
+</div>
+
+<div class="mb-4">
+<h3 class="font-bold">Tether (USDT) - Network: ETH</h3>
+
+<p class="crypto-address">299 USDT<br />
+0xD5F436df99D8F58008C7B1FC3112E5CB41fB086e</p>
+</div>
+
+<div class="mb-4">
+<h3 class="font-bold">Tether (USDT) - Network: BNB</h3>
+
+<p class="crypto-address">299 USDT<br />
+0xD5F436df99D8F58008C7B1FC3112E5CB41fB086e</p>
+</div>
+<!-- Animación de detección y botón de confirmación de pago -->
+
+<div class="flex justify-between items-center mt-4">
+<div class="detecting">
+<p>Detectando pago...</p>
+</div>
+
+<div>
+<p>Tiempo restante: <span id="time">10:00</span></p>
+</div>
+</div>
+<button class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onclick="window.location.href='payment-completed.html';">He realizado el pago</button></div>
+</body>
+</html>

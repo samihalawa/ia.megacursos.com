@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pago Seguro por Bizum</title>
+	<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
+	<style type="text/css">@keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.3; }
+            100% { opacity: 1; }
+        }
+        .detecting {
+            animation: pulse 2s infinite;
+        }
+	</style>
+	<script>
+        function startTimer(duration, display) {
+            var timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = duration;
+                    window.location.reload(); // Recargar la página cuando el temporizador llegue a 0
+                }
+            }, 1000);
+        }
+
+        window.onload = function () {
+            var tenMinutes = 60 * 10,
+                display = document.querySelector('#time');
+            startTimer(tenMinutes, display);
+        };
+    </script>
+</head>
+<body class="bg-gray-100">
+<div class="container mx-auto mt-6 p-6 bg-white shadow-md rounded-lg max-w-2xl">
+<h1 class="text-gray-700 text-2xl font-bold mb-3">Pago Seguro por Bizum</h1>
+
+<p class="text-gray-600 text-sm mb-6">Realiza tu pago de forma r&aacute;pida y segura.</p>
+
+<div class="mb-4 text-center">
+<p class="text-gray-600">Env&iacute;a 799,00 EUR al siguiente n&uacute;mero de Bizum. Incluye la referencia de pago: <strong>XPLO392</strong>.(Si lo hace en dos veces incluya la misma referencia).</p>
+
+<h2 class="text-3xl font-bold text-blue-500 my-4">679794037</h2>
+
+<div class="animate-pulse flex justify-center items-center mt-4">
+<div class="rounded-full bg-blue-400 h-12 w-12"></div>
+<span class="text-gray-600 ml-4">Detectando pagos por Bizum&hellip;</span></div>
+
+<p class="text-red-500 mt-4">Pago no detectado. No recargue.</p>
+</div>
+
+<div class="mt-6 flex justify-center"></div>
+
+<div class="mt-6 flex justify-center"><button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" onclick="location.href='payment-completed.html'" type="button">Ya he enviado el pago</button></div>
+
+<div class="mt-6 text-center">
+<p class="text-gray-600"></p>
+
+<p class="text-gray-600"></p>
+
+<p class="text-gray-600"></p>
+
+<p class="text-gray-600">Su plaza en el M&aacute;ster de ChatGPT + IA en 35h se reservar&aacute; &uacute;nicamente durante los pr&oacute;ximos 8 minutos. Si el tiempo finaliza o sale de la p&aacute;gina, es posible que las plazas a precio reducido del 30% y con Diploma F&iacute;sico Gratuito se hayan agotado.</p>
+
+<p class="text-gray-600">Podr&aacute; solicitar factura en caso de necesitarla en <a class="text-blue-500" href="mailto:ventas@megacursos.com">ventas@megacursos.com</a></p>
+</div>
+
+<div class="mt-4">
+<p style="text-align: right;"></p>
+
+<p style="text-align: right;">Tiempo: <span id="time"></span></p>
+</div>
+</div>
+</body>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" /></html>
